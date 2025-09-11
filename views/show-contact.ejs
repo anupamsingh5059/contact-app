@@ -1,28 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>My Contact</title>
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
-    <!-- Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/custom.css" rel="stylesheet">
-  </head>
-  <body>
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container">
-        <a class="navbar-brand text-uppercase" href="index.html">            
-            <strong>Contact</strong> App
-        </a>
-      </div>
-    </nav>
-
+<%- include("partials/header") %>
     <!-- content -->
     <main class="py-5">
       <div class="container">
@@ -72,9 +49,9 @@
                     <hr>
                     <div class="form-group row mb-0">
                       <div class="col-md-9 offset-md-3">
-                          <a href="#" class="btn btn-info">Edit</a>
-                          <a href="#" class="btn btn-outline-danger">Delete</a>
-                          <a href="index.html" class="btn btn-outline-secondary">Cancel</a>
+                          <a href="/update-contact" class="btn btn-info">Edit</a>
+                          <a href="/delete-contact" class="btn btn-outline-danger">Delete</a>
+                          <a href="/" class="btn btn-outline-secondary">Cancel</a>
                       </div>
                     </div>
                   </div>
@@ -85,5 +62,4 @@
         </div>
       </div>
     </main>
-  </body>
-</html>
+ <%- include('partials/footer') %>
