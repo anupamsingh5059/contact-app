@@ -18,8 +18,11 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({extended:false}))
 app.use(express.static("public"))
 // Route
-app.get('/', (req, res)=> {
-   res.render("home")
+app.get('/', async (req, res)=> {
+
+   const contacts = await Contact.find();
+  //  res.json(contacts)
+   res.render("home", {contacts:contacts})
 })
 
 app.get('/show-contact', (req, res)=> {
