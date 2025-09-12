@@ -48,30 +48,61 @@ app.get('/show-contact/:id', async (req, res) => {
   }
 });
 
-app.get('/add-contact', (req, res)=> {
-    res.render("add-contact")
-})
-app.post('/add-contact/:id', (req, res)=> {
-    
-    
-})
+// Show Add Contact Form
+app.get('/add-contact', (req, res) => {
+  res.render("add-contact");
+});
+
+app.post('/add-contact', async (req, res) => {
+  try {
+    const newContact = new Contact(req.body);
+    await newContact.save();
+    res.redirect('/');
+  } catch (error) {
+    res.status(500).send("Error adding contact");
+  }
+});
+
+
+// Show update form
 app.get('/update-contact/:id', async (req, res) => {
   try {
     const contact = await Contact.findById(req.params.id);
-    if (!contact) return res.status(404).send("Contact not found");
-
+    if (!contact) {
+      return res.status(404).send("Contact not found");
+    }
     res.render("update-contact", { contact });
-  } catch (err) {
+  } catch (error) {
     res.status(500).send("Error loading contact");
   }
 });
 
-app.post('/update-contact/:id', (req, res)=>{
-    
-})
-app.get('/delete-contact/:id', (req, res)=>{
-    
-})
+// Handle update form submission
+app.post('/update-contact/:id', async (req, res) => {
+  try {
+    await Contact.findByIdAndUpdate(req.params.id, {
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      email: req.body.email,
+      phone: req.body.phone,
+      address: req.body.address,
+    });
+    res.redirect(`/show-contact/${req.params.id}`);
+  } catch (error) {
+    res.status(500).send("Error updating contact");
+  }
+});
+
+// Hard Delete - Contact remove permanently
+app.get('/delete-contact/:id', async (req, res) => {
+  try {
+    await Contact.findByIdAndDelete(req.params.id);
+    res.redirect('/');
+  } catch (error) {
+    res.status(500).send("Error deleting contact");
+  }
+});
+
 
 
 const PORT = 3000;
