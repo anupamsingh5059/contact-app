@@ -36,9 +36,9 @@
                       <td><%= contact.email %></td>
                       <td><%= contact.phone %></td>
                       <td width="150">
-                        <a href="/show-contact" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
-                        <a href="/update-contact" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
-                        <a href="/delete-contact" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
+                        <a href="/show-contact/<%= contact._id %>" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
+                        <a href="/update-contact/<%= contact._id %>" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
+                        <a href="/delete-contact/<%= contact._id %>" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
                       </td>
                     </tr>  
                         
