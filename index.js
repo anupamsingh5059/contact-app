@@ -1,5 +1,15 @@
 import express from "express";
+import mongoose, { connect, connections } from "mongoose";
 
+
+import Contact from "./models/contacts.models.js";
+
+
+
+// Database 
+
+mongoose.connect("mongodb://127.0.0.1:27017/contacts-crud")
+.then(() => console.log("Database connection Success"))
 const app = express();
 // Middleware
 
