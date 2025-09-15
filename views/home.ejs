@@ -27,10 +27,11 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <% let num = 1; %>
                     <% contacts.forEach( contact => { %>
 
                       <tr>
-                      <td><%= contact._id %></td>
+                      <td><%=  num++ %></td>
                       <td><%= contact.first_name %></td>
                       <td><%= contact.last_name %></td>
                       <td><%= contact.email %></td>
